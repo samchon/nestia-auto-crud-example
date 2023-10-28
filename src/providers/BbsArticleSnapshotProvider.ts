@@ -1,10 +1,8 @@
 import { Prisma } from "@prisma/client";
 import { v4 } from "uuid";
 
-import { IBbsArticle } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IBbsArticle";
-import { IEntity } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IEntity";
+import { IBbsArticle } from "@ORGANIZATION/PROJECT-api/lib/structures/IBbsArticle";
 
-import { MyGlobal } from "../../MyGlobal";
 import { AttachmentFileProvider } from "./AttachmentFileProvider";
 
 export namespace BbsArticleSnapshotProvider {
@@ -34,29 +32,6 @@ export namespace BbsArticleSnapshotProvider {
                 } as const,
             });
     }
-
-    export const store =
-        (article: IEntity) =>
-        async (input: IBbsArticle.IUpdate): Promise<IBbsArticle.ISnapshot> => {
-            const snapshot = await MyGlobal.prisma.bbs_article_snapshots.create(
-                {
-                    data: {
-                        ...collect(input),
-                        article: { connect: { id: article.id } },
-                    },
-                    ...json.select(),
-                },
-            );
-            await MyGlobal.prisma.mv_bbs_article_last_snapshots.update({
-                where: {
-                    bbs_article_id: article.id,
-                },
-                data: {
-                    bbs_article_snapshot_id: snapshot.id,
-                },
-            });
-            return json.transform(snapshot);
-        };
 
     export const collect = (input: IBbsArticle.IStore) =>
         Prisma.validator<Prisma.bbs_article_snapshotsCreateWithoutArticleInput>()(

@@ -1,10 +1,10 @@
 import { Prisma } from "@prisma/client";
 import { v4 } from "uuid";
 
-import { IBbsArticleComment } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IBbsArticleComment";
+import { IBbsArticleComment } from "@ORGANIZATION/PROJECT-api/lib/structures/IBbsArticleComment";
 import { IEntity } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IEntity";
 
-import { MyGlobal } from "../../MyGlobal";
+import { MyGlobal } from "../MyGlobal";
 import { AttachmentFileProvider } from "./AttachmentFileProvider";
 
 export namespace BbsArticleCommentSnapshotProvider {

@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-import { IAttachmentFile } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IAttachmentFile";
+import { IAttachmentFile } from "@ORGANIZATION/PROJECT-api/lib/structures/IAttachmentFile";
 
 import { Prisma } from ".prisma/client";
 

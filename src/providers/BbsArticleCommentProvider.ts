@@ -1,12 +1,12 @@
 import { Prisma } from "@prisma/client";
 import { v4 } from "uuid";
 
-import { IBbsArticle } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IBbsArticle";
-import { IBbsArticleComment } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IBbsArticleComment";
+import { IBbsArticle } from "@ORGANIZATION/PROJECT-api/lib/structures/IBbsArticle";
+import { IBbsArticleComment } from "@ORGANIZATION/PROJECT-api/lib/structures/IBbsArticleComment";
 import { IPage } from "@ORGANIZATION/PROJECT-api/lib/structures/common/IPage";
 
-import { MyGlobal } from "../../MyGlobal";
-import { PaginationUtil } from "../../utils/PaginationUtil";
+import { MyGlobal } from "../MyGlobal";
+import { PaginationUtil } from "../utils/PaginationUtil";
 import { BbsArticleCommentSnapshotProvider } from "./BbsArticleCommentSnapshotProvider";
 
 export namespace BbsArticleCommentProvider {
